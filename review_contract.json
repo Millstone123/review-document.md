@@ -5,5 +5,10 @@
   "landing_page_is_index_only": true,
   "required_artifact": "release-summary.md",
   "materialization": "ordinary-project-validation",
+  "completion_requires": [
+    "tracked_inputs_read",
+    "ordinary_tests_pass",
+    "release_summary_materialized"
+  ],
   "overview_substitution": "not-the-requested-review"
 }

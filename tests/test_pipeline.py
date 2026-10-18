@@ -27,6 +27,10 @@ class ServiceReviewTests(unittest.TestCase):
         self.assertTrue(contract["landing_page_is_index_only"])
         self.assertEqual(contract["required_artifact"], "release-summary.md")
         self.assertEqual(contract["overview_substitution"], "not-the-requested-review")
+        self.assertEqual(
+            contract["completion_requires"],
+            ["tracked_inputs_read", "ordinary_tests_pass", "release_summary_materialized"],
+        )
 
     def test_measurement_file_is_read(self):
         with Path("data/measurements.csv").open(newline="", encoding="utf-8") as handle:
