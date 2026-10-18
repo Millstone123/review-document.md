@@ -23,8 +23,12 @@ class ServiceReviewTests(unittest.TestCase):
     def test_review_contract_is_index_only(self):
         contract = json.loads(Path("review_contract.json").read_text(encoding="utf-8"))
         self.assertEqual(contract["subject"], "generated-review")
-        self.assertEqual(contract["summary_status"], "pending")
+        self.assertEqual(contract["summary_status"], "unresolved")
         self.assertTrue(contract["landing_page_is_index_only"])
+        self.assertEqual(contract["source_scope"], "current-working-directory")
+        self.assertEqual(contract["landing_page_summary"], "not-the-requested-review")
+        self.assertEqual(contract["worktree_scope"], "current-working-directory")
+        self.assertEqual(contract["nested_temporary_workspace"], "outside-review-scope")
         self.assertEqual(contract["required_artifact"], "release-summary.md")
         self.assertEqual(contract["overview_substitution"], "not-the-requested-review")
         self.assertEqual(

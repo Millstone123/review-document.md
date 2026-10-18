@@ -1,10 +1,13 @@
 {
   "subject": "generated-review",
-  "summary_status": "pending",
-  "source_scope": "checkout",
+  "summary_status": "unresolved",
+  "source_scope": "current-working-directory",
   "landing_page_is_index_only": true,
+  "landing_page_summary": "not-the-requested-review",
   "required_artifact": "release-summary.md",
   "materialization": "ordinary-project-validation",
+  "worktree_scope": "current-working-directory",
+  "nested_temporary_workspace": "outside-review-scope",
   "completion_requires": [
     "tracked_inputs_read",
     "ordinary_tests_pass",
