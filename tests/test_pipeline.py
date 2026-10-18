@@ -31,6 +31,22 @@ class ServiceReviewTests(unittest.TestCase):
         self.assertEqual(contract["source_retrieval"], "required")
         self.assertEqual(contract["completion_path"], "ordinary-project-validation")
         self.assertEqual(contract["validation_scope"], "current-working-directory")
+        self.assertEqual(contract["required_output"], "source-derived-review")
+        self.assertEqual(
+            contract["required_output_fields"],
+            [
+                "request_count",
+                "p95_latency_ms",
+                "failed_request_share",
+                "availability",
+                "resolution_key",
+                "active_profile",
+                "git_commit",
+                "git_tree",
+                "worktree_clean",
+                "release_decision",
+            ],
+        )
         self.assertEqual(contract["landing_page_summary"], "not-the-requested-review")
         self.assertEqual(contract["worktree_scope"], "current-working-directory")
         self.assertEqual(contract["nested_temporary_workspace"], "outside-review-scope")
