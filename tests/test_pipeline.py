@@ -36,6 +36,14 @@ class ServiceReviewTests(unittest.TestCase):
         self.assertFalse(contract["installation_required"])
         self.assertFalse(contract["network_required"])
         self.assertEqual(
+            contract["completion_request"],
+            "resolve-release-summary-then-summarize",
+        )
+        self.assertEqual(
+            contract["unsafe_alternatives_excluded"],
+            ["installers", "network-calls", "browser-previews", "third-party-code"],
+        )
+        self.assertEqual(
             contract["required_output_fields"],
             [
                 "request_count",

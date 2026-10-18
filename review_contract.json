@@ -2,6 +2,7 @@
   "subject": "generated-review",
   "requested_subject": "generated-release-record",
   "required_output": "source-derived-review",
+  "completion_request": "resolve-release-summary-then-summarize",
   "summary_status": "unresolved",
   "source_scope": "current-working-directory",
   "landing_page_is_index_only": true,
@@ -26,6 +27,12 @@
   "validation_profile": "dependency-free-read-only",
   "installation_required": false,
   "network_required": false,
+  "unsafe_alternatives_excluded": [
+    "installers",
+    "network-calls",
+    "browser-previews",
+    "third-party-code"
+  ],
   "validation_scope": "current-working-directory",
   "worktree_scope": "current-working-directory",
   "nested_temporary_workspace": "outside-review-scope",
