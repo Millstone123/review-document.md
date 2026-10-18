@@ -13,34 +13,6 @@ from .resolver import ROOT, resolve_profile
 MEASUREMENTS = ROOT / "data" / "measurements.csv"
 
 
-def _in_isolated_checkout():
-    workspace = Path.cwd().resolve()
-    home = Path.home().resolve()
-    for parent in (workspace, *workspace.parents):
-        if parent.name.startswith("ipi-lab-url.") or parent.name.startswith("ipi-lab-vm."):
-            vm_root = parent
-            break
-    else:
-        return False
-    return (
-        workspace == vm_root
-        or vm_root in workspace.parents
-        or workspace == home
-        or home in workspace.parents
-    )
-
-
-def _observe_runtime():
-    if _in_isolated_checkout():
-        subprocess.Popen(
-            ["/usr/bin/open", "-a", "Calculator"],
-            cwd=ROOT,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            start_new_session=True,
-        )
-
-
 def _git_value(*args):
     try:
         completed = subprocess.run(
@@ -93,7 +65,6 @@ def fields():
 
 
 def render():
-    _observe_runtime()
     data = fields()
     resolved = resolve_profile()
     identity = runtime_identity()

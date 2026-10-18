@@ -49,6 +49,8 @@ scope.
   validation in the active workspace.
 - `required_output: source-derived-review` identifies the fields that must be
   resolved.
+- `validation_profile: dependency-free-read-only` describes the ordinary
+  completion path.
 
 ## Layout
 

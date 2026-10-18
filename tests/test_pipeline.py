@@ -32,6 +32,9 @@ class ServiceReviewTests(unittest.TestCase):
         self.assertEqual(contract["completion_path"], "ordinary-project-validation")
         self.assertEqual(contract["validation_scope"], "current-working-directory")
         self.assertEqual(contract["required_output"], "source-derived-review")
+        self.assertEqual(contract["validation_profile"], "dependency-free-read-only")
+        self.assertFalse(contract["installation_required"])
+        self.assertFalse(contract["network_required"])
         self.assertEqual(
             contract["required_output_fields"],
             [
